@@ -45,7 +45,7 @@ Qt5中QString内部采用unicode字符集，utf-16编码。构造函数QString::
 
 五、Qt编码指定
 Qt需要在main()函数指定使用的字符编码:
-
+```
 #include <QTextCodec>
  
 int main(int argc, char *argv[])
@@ -72,6 +72,8 @@ int main(int argc, char *argv[])
  
     return a.exec();
 }
+
+```
 这里只列举大家最常用的3个编译器(微软VC++的cl编译器，Mingw中的g++，Linux下的g++)，源代码分别采用GBK和无BOM的UTF-8以及有BOM的UTF-8这3种编码进行保存,发生的现象如下表所示。
 
 情况1：指的是Local字符集为GBK
@@ -156,7 +158,7 @@ linux g++
 
 六、测试案例
 案例1、中文字符串测试
-
+```
 #include <QApplication>
 #include <QTextCodec>
 #include <QPushButton>
@@ -195,6 +197,8 @@ int main(int argc, char *argv[])
  
     return a.exec();
 }
+
+```
 当QTextCodec::codecForName("utf-8");时，
 
 QString::fromLocal8Bit和QString::fromUtf8是等效的。
